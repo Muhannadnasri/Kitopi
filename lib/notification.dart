@@ -141,7 +141,7 @@ class _State extends State<Notifications> {
     try {
       final response = await http.get(
         Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/GetNotificationByEmpId/$username'),
+            'http://86.96.206.195/apilogin/api/geofence/GetNotificationByEmpId/$username'),
       );
       if (response.statusCode == 200) {
         setState(

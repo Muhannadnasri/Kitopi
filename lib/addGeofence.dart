@@ -171,9 +171,12 @@ class _State extends State<AddGeofence> {
                                     _radius();
                                   });
                                 },
-                                color: Color(0xffffe900),
+                                color: Color(0xff67B2BB),
                                 // textColor: Colors.white,
-                                child: Text('Check on Map'),
+                                child: Text('Check on Map',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    )),
                               ),
                             ),
                             Container(
@@ -190,9 +193,12 @@ class _State extends State<AddGeofence> {
                                     addGeofence();
                                   });
                                 },
-                                color: Color(0xffffe900),
+                                color: Color(0xff67B2BB),
                                 // textColor: Colors.white,
-                                child: Text('Add Geofence'),
+                                child: Text('Add Geofence',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    )),
                               ),
                             ),
                           ],
@@ -299,7 +305,7 @@ class _State extends State<AddGeofence> {
     try {
       final response = await http.post(
         Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/RegisterGeofence'),
+            'http://86.96.206.195/apilogin/api/geofence/RegisterGeofence'),
         body: {
           'GeoFenceName': geofenceName,
           'Latitude': latitude,

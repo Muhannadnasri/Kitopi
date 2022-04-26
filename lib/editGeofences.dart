@@ -109,13 +109,13 @@ class _State extends State<EditGeofences> {
             });
           },
           child: Material(
-            color: Color(0xffffe900),
+            color: Color(0xff67B2BB),
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Text(
                 "Submit",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 17, color: Colors.white),
               ),
             ),
           ),
@@ -201,9 +201,12 @@ class _State extends State<EditGeofences> {
                                         double.parse(_longitude.text)),
                                     geoFenceName);
                               },
-                              color: Color(0xffffe900),
+                              color: Color(0xff67B2BB),
                               // textColor: Colors.white,
-                              child: Text('Check on Map'),
+                              child: Text('Check on Map',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  )),
                             ),
                           ),
                         ),
@@ -306,7 +309,7 @@ class _State extends State<EditGeofences> {
     try {
       final response = await http.put(
           Uri.parse(
-              'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/UpdateGeofence'),
+              'http://86.96.206.195/apilogin/api/geofence/UpdateGeofence'),
           body: {
             'Id': widget.id.toString(),
             'GeoFenceName': geoFenceName,

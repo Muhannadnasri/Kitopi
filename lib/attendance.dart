@@ -347,21 +347,24 @@ class _State extends State<AttendanceMark> {
                                 onToggle: (index) {
                                   setState(() {
                                     // mode = index;
-                                    if (network && companyName != "") {
+                                    if (network) {
                                       sendAttendace();
                                     } else {
                                       final snackBar = SnackBar(
                                           content: Text(
-                                              'Please check company name and your network and try again'));
+                                              'Please check بyour network and try again'));
                                       _scaffoldKey.currentState
                                           .showSnackBar(snackBar);
                                     }
 
-                                    if (checkAttendaceJson == 1) {
-                                      mode = 0;
-                                    } else if (checkAttendaceJson == 2) {
-                                      mode = 1;
-                                    }
+                                    setState(() {
+                                      if (checkAttendaceJson == 1) {
+                                        mode = 0;
+                                      } else if (checkAttendaceJson == 2) {
+                                        mode = 1;
+                                      }
+                                    });
+
                                     // mode = index;
                                   });
                                 },
@@ -373,36 +376,36 @@ class _State extends State<AttendanceMark> {
                       SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            child: Text('Checking:'),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Expanded(
-                            child: TextField(
-                              decoration: const InputDecoration(
-                                  hintText: 'company name'),
-                              onTap: () {
-                                setState(() {
-                                  isVisible = false;
-                                });
-                              },
-                              onChanged: (x) {
-                                setState(() {
-                                  companyName = x;
-                                  // searchItems();
-                                });
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
+                      // Row(
+                      //   children: <Widget>[
+                      //     Container(
+                      //       child: Text('Checking:'),
+                      //     ),
+                      //     SizedBox(
+                      //       width: 20,
+                      //     ),
+                      //     // Expanded(
+                      //     //   child: TextField(
+                      //     //     decoration: const InputDecoration(
+                      //     //         hintText: 'company name'),
+                      //     //     onTap: () {
+                      //     //       setState(() {
+                      //     //         isVisible = false;
+                      //     //       });
+                      //     //     },
+                      //     //     onChanged: (x) {
+                      //     //       setState(() {
+                      //     //         companyName = x;
+                      //     //         // searchItems();
+                      //     //       });
+                      //     //     },
+                      //     //   ),
+                      //     // ),
+                      //   ],
+                      // ),
+                      // SizedBox(
+                      //   height: 20,
+                      // ),
                     ],
                   ),
 
@@ -513,8 +516,7 @@ class _State extends State<AttendanceMark> {
 
     try {
       final response = await http.post(
-        Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/MarkAttendance'),
+        Uri.parse('http://86.96.206.195/apilogin/api/geofence/MarkAttendance'),
         body: {
           "attDate": dateSend.text.toString(),
           "attTime": timeSend.text.toString(),
@@ -524,8 +526,8 @@ class _State extends State<AttendanceMark> {
           "radius": "16",
           "mobileNo": loginJson['mobileNo'].toString(),
           "mode": mode == 1 ? '2' : '1',
-          'address': address.toString(),
-          'Company': companyName.toString(),
+          "address": address.toString(),
+          "Company": companyName.toString(),
         },
       );
       if (response.statusCode == 200) {
@@ -568,8 +570,8 @@ class _State extends State<AttendanceMark> {
     try {
       final response = await http.get(
         Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/Geofence/GetPunchMode?EmpId=${loginJson['userName']}'),
-        // 'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/GetGeofenceValidation?latitide=${attendanceLatitude.toString()}&longitude=${attendanceLongitude.toString()}'),
+            'http://86.96.206.195/apilogin/api/Geofence/GetPunchMode?EmpId=${loginJson['userName']}'),
+        // 'http://86.96.206.195/apilogin/api/geofence/GetGeofenceValidation?latitide=${attendanceLatitude.toString()}&longitude=${attendanceLongitude.toString()}'),
       );
       if (response.statusCode == 200) {
         checkAttendaceJson = json.decode(response.body);
@@ -615,8 +617,8 @@ class _State extends State<AttendanceMark> {
     try {
       final response = await http.get(
         Uri.parse(
-            // 'http://bajajuae.dyndns.org:8443/geofenceapi/api/Geofence/GetPunchMode?EmpId=${loginJson['userName']}'),
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/GetGeofenceValidation?latitide=${attendanceLatitude.toString()}&longitude=${attendanceLongitude.toString()}'),
+            // 'http://86.96.206.195/apilogin/api/Geofence/GetPunchMode?EmpId=${loginJson['userName']}'),
+            'http://86.96.206.195/apilogin/api/geofence/GetGeofenceValidation?latitide=${attendanceLatitude.toString()}&longitude=${attendanceLongitude.toString()}'),
       );
       if (response.statusCode == 200) {
         checkAttendaceLocationJson = json.decode(response.body);

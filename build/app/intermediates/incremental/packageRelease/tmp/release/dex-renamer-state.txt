@@ -1,0 +1,4 @@
+#Sun Feb 13 02:33:03 GST 2022
+base.0=/Users/user/Documents/Kitopi/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

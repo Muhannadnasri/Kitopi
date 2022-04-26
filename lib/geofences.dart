@@ -339,8 +339,7 @@ class _State extends State<Geofences> {
 
     try {
       final response = await http.get(
-        Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/GetAllGeofence'),
+        Uri.parse('http://86.96.206.195/apilogin/api/geofence/GetAllGeofence'),
       );
       if (response.statusCode == 200) {
         setState(
@@ -367,7 +366,7 @@ class _State extends State<Geofences> {
     try {
       final response = await http.delete(
           Uri.parse(
-              'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/DeleteGeofence/${id.toString()}'),
+              'http://86.96.206.195/apilogin/api/geofence/DeleteGeofence/${id.toString()}'),
           headers: {"Content-Type": "application/json"});
       if (response.statusCode == 200) {
         setState(

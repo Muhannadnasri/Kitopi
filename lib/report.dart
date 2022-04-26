@@ -61,8 +61,8 @@ class _State extends State<Report> {
                           // minTime: DateTime(2018, 3, 5),
                           maxTime: DateTime.now(),
                           theme: DatePickerTheme(
-                              headerColor: Color(0xffffe900),
-                              backgroundColor: Color(0xffffe900),
+                              headerColor: Color(0xff67B2BB),
+                              backgroundColor: Color(0xff67B2BB),
                               itemStyle: TextStyle(
                                   // color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -98,8 +98,8 @@ class _State extends State<Report> {
                           minTime: ifValue,
                           maxTime: DateTime.now(),
                           theme: DatePickerTheme(
-                              headerColor: Color(0xffffe900),
-                              backgroundColor: Color(0xffffe900),
+                              headerColor: Color(0xff67B2BB),
+                              backgroundColor: Color(0xff67B2BB),
                               itemStyle: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 18),
                               doneStyle: TextStyle(fontSize: 16)),
@@ -139,9 +139,12 @@ class _State extends State<Report> {
                             getReport();
                           });
                         },
-                        color: Color(0xffffe900),
+                        color: Color(0xff67B2BB),
                         // textColor: Colors.white,
-                        child: Text('Load Report'),
+                        child: Text(
+                          'Load Report',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
@@ -382,7 +385,7 @@ class _State extends State<Report> {
     try {
       final response = await http.post(
         Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/GetEmployeeAttendance'),
+            'http://86.96.206.195/apilogin/api/geofence/GetEmployeeAttendance'),
         body: {
           "empId": username,
           'fromDt': fromDateSend,
@@ -417,7 +420,7 @@ class _State extends State<Report> {
     try {
       final response = await http.post(
         Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/UpdateEmployeeAttendance'),
+            'http://86.96.206.195/apilogin/api/geofence/UpdateEmployeeAttendance'),
         body: {
           'ids': reportStatusJson[index]['id'].toString(),
           'empId': loginJson['userName'],

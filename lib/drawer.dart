@@ -25,14 +25,14 @@ class _AppDrawerState extends State<AppDrawer> {
         children: <Widget>[
           UserAccountsDrawerHeader(
             decoration: BoxDecoration(
-              color: new Color(0xFF0062ac),
+              color: new Color(0xff67B2BB),
             ),
             accountName: Text(loginJson['name']),
             accountEmail: Text(loginJson['department']),
             currentAccountPicture: ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: base64All == null
-                  ? Image.asset('assets/logo.png')
+                  ? Image.asset('assets/upload.png')
                   : Image.memory(bytesAll),
 
               // Image.file(
@@ -74,7 +74,7 @@ class _AppDrawerState extends State<AppDrawer> {
           //         ],
           //       )),
           //   decoration: BoxDecoration(
-          //     color: Color(0xffffe900),
+          //     color: Color(0xff67B2BB),
           //   ),
           // ),
           IgnorePointer(
@@ -84,7 +84,7 @@ class _AppDrawerState extends State<AppDrawer> {
               leading: Icon(
                 Icons.home,
                 color: widget.selected == 'Attendance'
-                    ? Color(0xff2f3194)
+                    ? Color(0xff67B2BB)
                     : Colors.grey,
               ),
               title: Text(
@@ -119,7 +119,7 @@ class _AppDrawerState extends State<AppDrawer> {
               leading: Icon(
                 Icons.apps,
                 color: widget.selected == 'Report'
-                    ? Color(0xff2f3194)
+                    ? Color(0xff67B2BB)
                     : Colors.grey,
               ),
               title: Text(
@@ -151,7 +151,7 @@ class _AppDrawerState extends State<AppDrawer> {
             leading: Icon(
               Icons.people,
               color: widget.selected == 'Profile'
-                  ? Color(0xff2f3194)
+                  ? Color(0xff67B2BB)
                   : Colors.grey,
             ),
             title: Text("My Profile"),
@@ -180,7 +180,7 @@ class _AppDrawerState extends State<AppDrawer> {
               leading: Icon(
                 Icons.location_on,
                 color: widget.selected == 'AddGeofence'
-                    ? Color(0xff2f3194)
+                    ? Color(0xff67B2BB)
                     : Colors.grey,
               ),
               title: Text(
@@ -192,9 +192,9 @@ class _AppDrawerState extends State<AppDrawer> {
               onTap: () {
                 setState(() {
                   Navigator.pop(context);
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => AddGeofence()),
-                      (Route<dynamic> route) => false);
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => AddGeofence()));
+                  // (Route<dynamic> route) => false);
 
                   // Navigator.pop(context);
                   // Navigator.push(
@@ -214,7 +214,7 @@ class _AppDrawerState extends State<AppDrawer> {
               leading: Icon(
                 Icons.feedback,
                 color: widget.selected == 'Geofences'
-                    ? Color(0xff2f3194)
+                    ? Color(0xff67B2BB)
                     : Colors.grey,
               ),
               title: Text(
@@ -226,9 +226,9 @@ class _AppDrawerState extends State<AppDrawer> {
               onTap: () {
                 setState(() {
                   Navigator.pop(context);
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => Geofences()),
-                      (Route<dynamic> route) => false);
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Geofences()));
+                  // (Route<dynamic> route) => false);
                   // Navigator.pop(context);
                   // Navigator.push(
                   //   context,
@@ -247,7 +247,7 @@ class _AppDrawerState extends State<AppDrawer> {
               leading: Icon(
                 Icons.monetization_on,
                 color: widget.selected == 'Users'
-                    ? Color(0xff2f3194)
+                    ? Color(0xff67B2BB)
                     : Colors.grey,
               ),
               title: Text(

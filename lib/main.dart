@@ -37,12 +37,13 @@ class MyAppState extends State<MyApp> {
         );
         // );
       },
-      title: "Fit at Home Trainers",
+      title: "MyFence",
       theme: ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: Color(0xff67B2BB)),
         //fontFamily: 'Hdtc',
-        primaryColor: Color(0xff2f3194),
+        primaryColor: Color(0xff67B2BB),
         primaryColorBrightness: Brightness.dark,
-        accentColor: Color(0xffffe900),
+        accentColor: Color(0xff67B2BB),
       ),
       initialRoute: '/',
       routes: {

@@ -110,8 +110,13 @@ class _State extends State<LoginPage> {
                     height: 50,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: RaisedButton(
-                      color: Color(0xffffe900),
-                      child: Text('Login'),
+                      color: Color(0xff67B2BB),
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                       onPressed: () {
                         if (_logInForm.currentState.validate()) {
                           _logInForm.currentState.save();
@@ -200,7 +205,7 @@ class _State extends State<LoginPage> {
     try {
       final response = await http.get(
         Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/geofence/authenticateuser/?userName=$username&Password=$password'),
+            'http://86.96.206.195/apilogin/api/geofence/authenticateuser/?userName=$username&Password=$password'),
       );
 
       if (response.statusCode == 200) {
@@ -237,8 +242,7 @@ class _State extends State<LoginPage> {
   Future showFace() async {
     try {
       final response = await http.post(
-        Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/Geofence/getphoto'),
+        Uri.parse('http://86.96.206.195/apilogin/api/Geofence/getphoto'),
         body: {
           'userId': loginJson['userName'],
         },

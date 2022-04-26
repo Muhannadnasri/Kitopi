@@ -73,9 +73,12 @@ class _State extends State<Users> {
                             ),
                           );
                         },
-                        color: Color(0xffffe900),
+                        color: Color(0xff67B2BB),
                         // textColor: Colors.white,
-                        child: Text('Add New'),
+                        child: Text(
+                          'Add New',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
@@ -233,8 +236,7 @@ class _State extends State<Users> {
 
     try {
       final response = await http.post(
-        Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/Users/GetUsers/'),
+        Uri.parse('http://86.96.206.195/apilogin/api/Users/GetUsers/'),
         body: {
           'empid': loginJson['role_ID'] == 1 ? '0' : username.toString(),
         },

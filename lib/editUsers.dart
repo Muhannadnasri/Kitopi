@@ -66,19 +66,19 @@ class _State extends State<EditUser> {
             });
           },
           child: Material(
-            color: Color(0xffffe900),
+            color: Color(0xff67B2BB),
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Text(
                 "Submit",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 17, color: Colors.white),
               ),
             ),
           ),
         )),
         appBar: AppBar(
-          title: Text('Edit Geofences'),
+          title: Text('Edit user'),
           actions: [
             GestureDetector(
                 onTap: () {
@@ -376,8 +376,7 @@ class _State extends State<EditUser> {
 
     try {
       final response = await http.post(
-        Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/Users/UpdateUsers/'),
+        Uri.parse('http://86.96.206.195/apilogin/api/Users/UpdateUsers/'),
         body: {
           'username': username,
           'password': password,
@@ -417,8 +416,7 @@ class _State extends State<EditUser> {
 
     try {
       final response = await http.post(
-        Uri.parse(
-            'http://bajajuae.dyndns.org:8443/geofenceapi/api/Users/UpdateUsers/'),
+        Uri.parse('http://86.96.206.195/apilogin/api/Users/UpdateUsers/'),
         body: {
           'username': widget.username,
           'password': widget.password,
